@@ -12,9 +12,8 @@ struct CompletePicturesData: Decodable {
     let data: [PictureData]
 }
 
-
 // MARK: - PictureData
-struct PictureData : Decodable {
+struct PictureData : Codable {
     
     let id : Int
     let albumId : Int
@@ -30,7 +29,6 @@ struct PictureData : Decodable {
         case url = "url"
         case thumbnailUrl = "thumbnailUrl"
     }
-    
 }
 
 

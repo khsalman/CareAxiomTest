@@ -11,7 +11,9 @@ class CAImagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     private var pictureViewModel : PictureViewModel!
-
+    let refreshControl = UIRefreshControl()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,20 +25,28 @@ class CAImagesViewController: UIViewController, UITableViewDelegate, UITableView
     func initialiseUI() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PictureCell")
-        self.tableView.reloadData()
+//        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PictureCell")
+        self.tableView.register(UINib(nibName: "PictureDataTableViewCell", bundle: nil), forCellReuseIdentifier: "PictureCell")
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: #selector(callToViewModelForUIUpdate), for: .valueChanged)
+        self.tableView.addSubview(self.refreshControl)
     }
     
-    func callToViewModelForUIUpdate(){
+    @objc func callToViewModelForUIUpdate(){
         self.pictureViewModel =  PictureViewModel()
-        self.pictureViewModel.bindPictureViewModelToCAImagesViewController = {
-            self.loadTableView()
+            self.pictureViewModel.bindPictureViewModelToCAImagesViewController = {
+                self.loadTableView()
+        }
+        
+        if InternetConnection.sharedInstance.isInternetConnected == false {
+            self.refreshControl.endRefreshing()
         }
     }
     
     func loadTableView() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -51,21 +61,26 @@ class CAImagesViewController: UIViewController, UITableViewDelegate, UITableView
      */
     
     // MARK: - TableView Delegates & Data Source
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.pictureViewModel != nil {
-            if self.pictureViewModel.picData != nil {
-                return self.pictureViewModel.picData!.count
-            }
-        }
-        return 0
+        guard let model = self.pictureViewModel else {return 0}
+        guard let data = model.picData else {return 0}
+        print("Total Elements to Display = \(data.count)")
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "PictureCell")
-         let pic = self.pictureViewModel.picData![indexPath.row]
-        cell.textLabel?.text = pic.title
-        cell.detailTextLabel?.text = pic.thumbnailUrl
-        return cell
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PictureCell") as? PictureDataTableViewCell else {return UITableViewCell()}
+        guard self.pictureViewModel.picData != nil else {return UITableViewCell()}
+        if self.pictureViewModel.picData!.count > indexPath.row {
+            let pic = self.pictureViewModel.picData![indexPath.row]
+            cell.titleLabel.text = pic.title
+            cell.thumbnailUrlLabel.text = pic.thumbnailUrl
+            return cell
+        }else {
+            return UITableViewCell()
+        }
     }
+    
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F3B19D8526EE41E400F62D02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B19D8426EE41E400F62D02 /* Constants.swift */; };
+		F3B19D8826EE637C00F62D02 /* InternetConnectiion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B19D8726EE637C00F62D02 /* InternetConnectiion.swift */; };
+		F3B19D8B26EEA8AD00F62D02 /* PictureDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B19D8926EEA8AD00F62D02 /* PictureDataTableViewCell.swift */; };
+		F3B19D8C26EEA8AD00F62D02 /* PictureDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3B19D8A26EEA8AD00F62D02 /* PictureDataTableViewCell.xib */; };
 		F3EAC28F26ECE044000D8C85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC28E26ECE044000D8C85 /* AppDelegate.swift */; };
 		F3EAC29126ECE044000D8C85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC29026ECE044000D8C85 /* SceneDelegate.swift */; };
 		F3EAC29626ECE044000D8C85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EAC29426ECE044000D8C85 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		F3B19D8426EE41E400F62D02 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F3B19D8726EE637C00F62D02 /* InternetConnectiion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectiion.swift; sourceTree = "<group>"; };
+		F3B19D8926EEA8AD00F62D02 /* PictureDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDataTableViewCell.swift; sourceTree = "<group>"; };
+		F3B19D8A26EEA8AD00F62D02 /* PictureDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureDataTableViewCell.xib; sourceTree = "<group>"; };
 		F3EAC28B26ECE044000D8C85 /* CareAxiomTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareAxiomTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EAC28E26ECE044000D8C85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EAC29026ECE044000D8C85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3B19D8626EE573B00F62D02 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F3B19D8426EE41E400F62D02 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		F3EAC28226ECE044000D8C85 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +80,7 @@
 		F3EAC28D26ECE044000D8C85 /* CareAxiomTestApplication */ = {
 			isa = PBXGroup;
 			children = (
+				F3B19D8626EE573B00F62D02 /* Constants */,
 				F3EAC2AE26ECE51B000D8C85 /* Network */,
 				F3EAC2A926ECE14C000D8C85 /* ViewModel */,
 				F3EAC2A826ECE145000D8C85 /* Model */,
@@ -75,7 +90,6 @@
 				F3EAC29A26ECE048000D8C85 /* Assets.xcassets */,
 				F3EAC29F26ECE048000D8C85 /* Info.plist */,
 				F3EAC29726ECE044000D8C85 /* CareAxiomTestApplication.xcdatamodeld */,
-				F3B19D8426EE41E400F62D02 /* Constants.swift */,
 			);
 			path = CareAxiomTestApplication;
 			sourceTree = "<group>";
@@ -86,6 +100,8 @@
 				F3EAC2A526ECE0D0000D8C85 /* CAImagesViewController.swift */,
 				F3EAC29426ECE044000D8C85 /* Main.storyboard */,
 				F3EAC29C26ECE048000D8C85 /* LaunchScreen.storyboard */,
+				F3B19D8926EEA8AD00F62D02 /* PictureDataTableViewCell.swift */,
+				F3B19D8A26EEA8AD00F62D02 /* PictureDataTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				F3EAC2AF26ECE52F000D8C85 /* ApiService.swift */,
+				F3B19D8726EE637C00F62D02 /* InternetConnectiion.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -173,6 +190,7 @@
 			files = (
 				F3EAC29E26ECE048000D8C85 /* LaunchScreen.storyboard in Resources */,
 				F3EAC29B26ECE048000D8C85 /* Assets.xcassets in Resources */,
+				F3B19D8C26EEA8AD00F62D02 /* PictureDataTableViewCell.xib in Resources */,
 				F3EAC29626ECE044000D8C85 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +203,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3EAC2A626ECE0D0000D8C85 /* CAImagesViewController.swift in Sources */,
+				F3B19D8826EE637C00F62D02 /* InternetConnectiion.swift in Sources */,
+				F3B19D8B26EEA8AD00F62D02 /* PictureDataTableViewCell.swift in Sources */,
 				F3EAC2AB26ECE1CE000D8C85 /* PictureModel.swift in Sources */,
 				F3EAC28F26ECE044000D8C85 /* AppDelegate.swift in Sources */,
 				F3EAC29926ECE044000D8C85 /* CareAxiomTestApplication.xcdatamodeld in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 
 class APIService :  NSObject {
-    private let sourcesURL = URL(string: "https://jsonplaceholder.typicode.com/photos")!
+    private let sourcesURL = URL(string: Constants.picDataUrl)!
     func apiToGetPictureData(completion : @escaping ([PictureData]?) -> ()){
         URLSession.shared.dataTask(with: sourcesURL) { (data, urlResponse, error) in
             if let data = data {
