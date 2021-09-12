@@ -7,25 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3B19D8526EE41E400F62D02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B19D8426EE41E400F62D02 /* Constants.swift */; };
 		F3EAC28F26ECE044000D8C85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC28E26ECE044000D8C85 /* AppDelegate.swift */; };
 		F3EAC29126ECE044000D8C85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC29026ECE044000D8C85 /* SceneDelegate.swift */; };
-		F3EAC29326ECE044000D8C85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC29226ECE044000D8C85 /* ViewController.swift */; };
 		F3EAC29626ECE044000D8C85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EAC29426ECE044000D8C85 /* Main.storyboard */; };
 		F3EAC29926ECE044000D8C85 /* CareAxiomTestApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC29726ECE044000D8C85 /* CareAxiomTestApplication.xcdatamodeld */; };
 		F3EAC29B26ECE048000D8C85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3EAC29A26ECE048000D8C85 /* Assets.xcassets */; };
 		F3EAC29E26ECE048000D8C85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EAC29C26ECE048000D8C85 /* LaunchScreen.storyboard */; };
+		F3EAC2A626ECE0D0000D8C85 /* CAImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC2A526ECE0D0000D8C85 /* CAImagesViewController.swift */; };
+		F3EAC2AB26ECE1CE000D8C85 /* PictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC2AA26ECE1CE000D8C85 /* PictureModel.swift */; };
+		F3EAC2AD26ECE4BB000D8C85 /* PictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC2AC26ECE4BB000D8C85 /* PictureViewModel.swift */; };
+		F3EAC2B026ECE52F000D8C85 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAC2AF26ECE52F000D8C85 /* ApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F3B19D8426EE41E400F62D02 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F3EAC28B26ECE044000D8C85 /* CareAxiomTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareAxiomTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EAC28E26ECE044000D8C85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EAC29026ECE044000D8C85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F3EAC29226ECE044000D8C85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F3EAC29526ECE044000D8C85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3EAC29826ECE044000D8C85 /* CareAxiomTestApplication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CareAxiomTestApplication.xcdatamodel; sourceTree = "<group>"; };
 		F3EAC29A26ECE048000D8C85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3EAC29D26ECE048000D8C85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3EAC29F26ECE048000D8C85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3EAC2A526ECE0D0000D8C85 /* CAImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAImagesViewController.swift; sourceTree = "<group>"; };
+		F3EAC2AA26ECE1CE000D8C85 /* PictureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureModel.swift; sourceTree = "<group>"; };
+		F3EAC2AC26ECE4BB000D8C85 /* PictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewModel.swift; sourceTree = "<group>"; };
+		F3EAC2AF26ECE52F000D8C85 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +66,52 @@
 		F3EAC28D26ECE044000D8C85 /* CareAxiomTestApplication */ = {
 			isa = PBXGroup;
 			children = (
+				F3EAC2AE26ECE51B000D8C85 /* Network */,
+				F3EAC2A926ECE14C000D8C85 /* ViewModel */,
+				F3EAC2A826ECE145000D8C85 /* Model */,
+				F3EAC2A726ECE13E000D8C85 /* View */,
 				F3EAC28E26ECE044000D8C85 /* AppDelegate.swift */,
 				F3EAC29026ECE044000D8C85 /* SceneDelegate.swift */,
-				F3EAC29226ECE044000D8C85 /* ViewController.swift */,
-				F3EAC29426ECE044000D8C85 /* Main.storyboard */,
 				F3EAC29A26ECE048000D8C85 /* Assets.xcassets */,
-				F3EAC29C26ECE048000D8C85 /* LaunchScreen.storyboard */,
 				F3EAC29F26ECE048000D8C85 /* Info.plist */,
 				F3EAC29726ECE044000D8C85 /* CareAxiomTestApplication.xcdatamodeld */,
+				F3B19D8426EE41E400F62D02 /* Constants.swift */,
 			);
 			path = CareAxiomTestApplication;
+			sourceTree = "<group>";
+		};
+		F3EAC2A726ECE13E000D8C85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAC2A526ECE0D0000D8C85 /* CAImagesViewController.swift */,
+				F3EAC29426ECE044000D8C85 /* Main.storyboard */,
+				F3EAC29C26ECE048000D8C85 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3EAC2A826ECE145000D8C85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAC2AA26ECE1CE000D8C85 /* PictureModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F3EAC2A926ECE14C000D8C85 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAC2AC26ECE4BB000D8C85 /* PictureViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3EAC2AE26ECE51B000D8C85 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAC2AF26ECE52F000D8C85 /* ApiService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3EAC29326ECE044000D8C85 /* ViewController.swift in Sources */,
+				F3EAC2A626ECE0D0000D8C85 /* CAImagesViewController.swift in Sources */,
+				F3EAC2AB26ECE1CE000D8C85 /* PictureModel.swift in Sources */,
 				F3EAC28F26ECE044000D8C85 /* AppDelegate.swift in Sources */,
 				F3EAC29926ECE044000D8C85 /* CareAxiomTestApplication.xcdatamodeld in Sources */,
 				F3EAC29126ECE044000D8C85 /* SceneDelegate.swift in Sources */,
+				F3EAC2B026ECE52F000D8C85 /* ApiService.swift in Sources */,
+				F3EAC2AD26ECE4BB000D8C85 /* PictureViewModel.swift in Sources */,
+				F3B19D8526EE41E400F62D02 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PX5S8Y6L6Z;
 				INFOPLIST_FILE = CareAxiomTestApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,6 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PX5S8Y6L6Z;
 				INFOPLIST_FILE = CareAxiomTestApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
