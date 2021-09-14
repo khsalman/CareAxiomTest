@@ -8,7 +8,10 @@
 import Foundation
 
 class APIService :  NSObject {
+    // MARK: - Variables
     private let sourcesURL = URL(string: Constants.picDataUrl)!
+    
+    // MARK: - API Data Retriever Methods
     func apiToGetPictureData(completion : @escaping ([PictureData]?) -> ()){
         URLSession.shared.dataTask(with: sourcesURL) { (data, urlResponse, error) in
             if let data = data {

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct CompletePicturesData: Decodable {
-//    let status: String
-    let data: [PictureData]
+// MARK: - PictureDataDic 
+struct PicDataDic : Codable {
+    var dic : [String : [PictureData]]
 }
 
 // MARK: - PictureData
@@ -20,7 +20,6 @@ struct PictureData : Codable {
     let title : String
     let url : String
     let thumbnailUrl : String
-    
     
     enum CodingKeys: String, CodingKey {
         case id

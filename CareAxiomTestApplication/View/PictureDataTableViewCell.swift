@@ -9,9 +9,11 @@ import UIKit
 
 class PictureDataTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var thumbnailUrlLabel: UILabel!
     
+    // MARK: - PreDefined initialser Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -8,5 +8,6 @@
 import Foundation
 struct Constants {
     static let picDataUrl = "https://jsonplaceholder.typicode.com/photos"
-    static let picDataKey = "picData"
+    static let picDataKey = "picDataDic"
+    static let picCellId = "PictureCell"
 }

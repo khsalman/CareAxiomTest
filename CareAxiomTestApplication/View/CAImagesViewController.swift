@@ -9,10 +9,12 @@ import UIKit
 
 class CAImagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - Iboutlets
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Variables & Constants
     private var pictureViewModel : PictureViewModel!
     let refreshControl = UIRefreshControl()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,23 +25,28 @@ class CAImagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: - Setup Initial UI
     func initialiseUI() {
+        self.title = "Pictures Data"
         self.tableView.delegate = self
         self.tableView.dataSource = self
-//        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PictureCell")
-        self.tableView.register(UINib(nibName: "PictureDataTableViewCell", bundle: nil), forCellReuseIdentifier: "PictureCell")
+        self.tableView.register(UINib(nibName: "PictureDataTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.picCellId)
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: #selector(callToViewModelForUIUpdate), for: .valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         self.tableView.addSubview(self.refreshControl)
+        self.pictureViewModel =  PictureViewModel()
+
     }
     
-    @objc func callToViewModelForUIUpdate(){
-        self.pictureViewModel =  PictureViewModel()
-            self.pictureViewModel.bindPictureViewModelToCAImagesViewController = {
-                self.loadTableView()
-        }
-        
+    // MARK: - Methods loading table & refresh table
+    @objc func refreshData() {
+        self.pictureViewModel.getPicturesData()
         if InternetConnection.sharedInstance.isInternetConnected == false {
             self.refreshControl.endRefreshing()
+        }
+    }
+    
+    func callToViewModelForUIUpdate(){
+            self.pictureViewModel.bindPictureViewModelToCAImagesViewController = {
+                self.loadTableView()
         }
     }
     
@@ -50,37 +57,37 @@ class CAImagesViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
     // MARK: - TableView Delegates & Data Source
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let model = self.pictureViewModel else {return 0}
-        guard let data = model.picData else {return 0}
-        print("Total Elements to Display = \(data.count)")
-        return data.count
+        let key = model.getParticularKey(index: section)
+        guard let arr = model.picDataDic?.dic[key] else {return 0}
+        return arr.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let model = self.pictureViewModel else {return 0}
+        return model.getAllKeysCount(picDict: model.picDataDic)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let model = self.pictureViewModel else {return "NIL"}
+        return model.getParticularKey(index: section)
+    }
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PictureCell") as? PictureDataTableViewCell else {return UITableViewCell()}
-        guard self.pictureViewModel.picData != nil else {return UITableViewCell()}
-        if self.pictureViewModel.picData!.count > indexPath.row {
-            let pic = self.pictureViewModel.picData![indexPath.row]
-            cell.titleLabel.text = pic.title
-            cell.thumbnailUrlLabel.text = pic.thumbnailUrl
-            return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.picCellId) as? PictureDataTableViewCell else {return UITableViewCell()}
+            
+        guard let model = self.pictureViewModel else {return UITableViewCell()}
+        let key = model.getParticularKey(index: indexPath.section)
+        guard let picAllData = model.picDataDic?.dic[key]! else {return UITableViewCell()}
+        if picAllData.count > indexPath.row {
+            let picData = picAllData[indexPath.row]
+            cell.titleLabel.text = picData.title
+            cell.thumbnailUrlLabel.text = picData.thumbnailUrl
         }else {
             return UITableViewCell()
         }
+        return cell
     }
-    
 }
